@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "994776011938",
+    "project_id": "liberiando",
+    "storage_bucket": "liberiando.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994776011938:android:79fa60caebffc46a60f3fb",
+        "android_client_info": {
+          "package_name": "com.mycompany.liberiando"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994776011938-htu9aq0pk342nqhbi2mdspvqned6rugo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.liberiando",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "994776011938-m8sd2f8cgflrhst6u9h7glk2mbofkc44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoD1IXHXrseQscnbms4-RQzDaJCOE8dfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994776011938-m8sd2f8cgflrhst6u9h7glk2mbofkc44.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "994776011938-rkldmeleu0t12go1kf25b42qmec0n1u9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.liberiando"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
