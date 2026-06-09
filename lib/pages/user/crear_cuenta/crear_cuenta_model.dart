@@ -11,14 +11,22 @@ class CrearCuentaModel extends FlutterFlowModel<CrearCuentaWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadDataYyd = '';
 
-  // State field(s) for username widget.
-  FocusNode? usernameFocusNode;
-  TextEditingController? usernameTextController;
-  String? Function(BuildContext, String?)? usernameTextControllerValidator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode;
-  TextEditingController? emailAddressTextController;
-  String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
+  // State field(s) for nombre widget.
+  FocusNode? nombreFocusNode;
+  TextEditingController? nombreTextController;
+  String? Function(BuildContext, String?)? nombreTextControllerValidator;
+  // State field(s) for apellido widget.
+  FocusNode? apellidoFocusNode;
+  TextEditingController? apellidoTextController;
+  String? Function(BuildContext, String?)? apellidoTextControllerValidator;
+  // State field(s) for correo widget.
+  FocusNode? correoFocusNode;
+  TextEditingController? correoTextController;
+  String? Function(BuildContext, String?)? correoTextControllerValidator;
+  // State field(s) for telefono widget.
+  FocusNode? telefonoFocusNode;
+  TextEditingController? telefonoTextController;
+  String? Function(BuildContext, String?)? telefonoTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
@@ -38,11 +46,17 @@ class CrearCuentaModel extends FlutterFlowModel<CrearCuentaWidget> {
 
   @override
   void dispose() {
-    usernameFocusNode?.dispose();
-    usernameTextController?.dispose();
+    nombreFocusNode?.dispose();
+    nombreTextController?.dispose();
 
-    emailAddressFocusNode?.dispose();
-    emailAddressTextController?.dispose();
+    apellidoFocusNode?.dispose();
+    apellidoTextController?.dispose();
+
+    correoFocusNode?.dispose();
+    correoTextController?.dispose();
+
+    telefonoFocusNode?.dispose();
+    telefonoTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

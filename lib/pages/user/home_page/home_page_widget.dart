@@ -543,47 +543,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
-                        FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed(AgregarEventoWidget.routeName);
-                          },
-                          text: 'Encontrar evento',
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 48.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
                       ].divide(SizedBox(height: 12.0)),
                     ),
                   ),
@@ -866,8 +825,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              dateTimeFormat("d/M h:mm a",
-                                                  listViewEventosRecord.fecha!),
+                                              dateTimeFormat(
+                                                "d/M h:mm a",
+                                                listViewEventosRecord.fecha!,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -1167,8 +1131,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              dateTimeFormat("d/M h:mm a",
-                                                  listViewEventosRecord.fecha!),
+                                              dateTimeFormat(
+                                                "d/M h:mm a",
+                                                listViewEventosRecord.fecha!,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall

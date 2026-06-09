@@ -890,8 +890,12 @@ class _AgregarEventoWidgetState extends State<AgregarEventoWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: dateTimeFormat(
-                                                  "d/M h:mm a",
-                                                  _model.datePicked),
+                                                "d/M h:mm a",
+                                                _model.datePicked,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1854,6 +1858,7 @@ class _AgregarEventoWidgetState extends State<AgregarEventoWidget> {
                                     imagen: FFAppState().varImagen,
                                     precio: _model
                                         .textFieldprecioTextController.text,
+                                    estado: 'Pendiente',
                                   ));
                               safeSetState(() {
                                 _model.textController1?.clear();
