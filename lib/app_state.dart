@@ -39,4 +39,10 @@ class FFAppState extends ChangeNotifier {
   set varFecha(DateTime? value) {
     _varFecha = value;
   }
+
+  String _varRol = '';
+  String get varRol => _varRol;
+  set varRol(String value) {
+    _varRol = value;
+  }
 }

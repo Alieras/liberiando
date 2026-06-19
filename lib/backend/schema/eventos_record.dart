@@ -60,6 +60,16 @@ class EventosRecord extends FirestoreRecord {
   String get precio => _precio ?? '';
   bool hasPrecio() => _precio != null;
 
+  // "Estado" field.
+  String? _estado;
+  String get estado => _estado ?? '';
+  bool hasEstado() => _estado != null;
+
+  // "organizadorRef" field.
+  DocumentReference? _organizadorRef;
+  DocumentReference? get organizadorRef => _organizadorRef;
+  bool hasOrganizadorRef() => _organizadorRef != null;
+
   void _initializeFields() {
     _nombre = snapshotData['Nombre'] as String?;
     _descripcion = snapshotData['Descripcion'] as String?;
@@ -70,6 +80,8 @@ class EventosRecord extends FirestoreRecord {
     _organizador = snapshotData['Organizador'] as String?;
     _imagen = snapshotData['Imagen'] as String?;
     _precio = snapshotData['Precio'] as String?;
+    _estado = snapshotData['Estado'] as String?;
+    _organizadorRef = snapshotData['organizadorRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +128,8 @@ Map<String, dynamic> createEventosRecordData({
   String? organizador,
   String? imagen,
   String? precio,
+  String? estado,
+  DocumentReference? organizadorRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -128,6 +142,8 @@ Map<String, dynamic> createEventosRecordData({
       'Organizador': organizador,
       'Imagen': imagen,
       'Precio': precio,
+      'Estado': estado,
+      'organizadorRef': organizadorRef,
     }.withoutNulls,
   );
 
@@ -147,7 +163,9 @@ class EventosRecordDocumentEquality implements Equality<EventosRecord> {
         e1?.direccion == e2?.direccion &&
         e1?.organizador == e2?.organizador &&
         e1?.imagen == e2?.imagen &&
-        e1?.precio == e2?.precio;
+        e1?.precio == e2?.precio &&
+        e1?.estado == e2?.estado &&
+        e1?.organizadorRef == e2?.organizadorRef;
   }
 
   @override
@@ -160,7 +178,9 @@ class EventosRecordDocumentEquality implements Equality<EventosRecord> {
         e?.direccion,
         e?.organizador,
         e?.imagen,
-        e?.precio
+        e?.precio,
+        e?.estado,
+        e?.organizadorRef
       ]);
 
   @override

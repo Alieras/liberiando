@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -90,16 +91,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: CrearCuentaWidget.routeName,
-          path: CrearCuentaWidget.routePath,
-          builder: (context, params) => CrearCuentaWidget(),
-        ),
-        FFRoute(
-          name: LoginWidget.routeName,
-          path: LoginWidget.routePath,
-          builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
           name: AgregarCategoriaWidget.routeName,
           path: AgregarCategoriaWidget.routePath,
           builder: (context, params) => AgregarCategoriaWidget(),
@@ -108,6 +99,67 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: AgregarEventoWidget.routeName,
           path: AgregarEventoWidget.routePath,
           builder: (context, params) => AgregarEventoWidget(),
+        ),
+        FFRoute(
+          name: AdminHomeWidget.routeName,
+          path: AdminHomeWidget.routePath,
+          builder: (context, params) => AdminHomeWidget(),
+        ),
+        FFRoute(
+          name: VerEventoWidget.routeName,
+          path: VerEventoWidget.routePath,
+          asyncParams: {
+            'evento': getDoc(['eventos'], EventosRecord.fromSnapshot),
+          },
+          builder: (context, params) => VerEventoWidget(
+            evento: params.getParam(
+              'evento',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EventospendientesWidget.routeName,
+          path: EventospendientesWidget.routePath,
+          builder: (context, params) => EventospendientesWidget(),
+        ),
+        FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
+          name: CrearCuentaWidget.routeName,
+          path: CrearCuentaWidget.routePath,
+          builder: (context, params) => CrearCuentaWidget(),
+        ),
+        FFRoute(
+          name: PerfilWidget.routeName,
+          path: PerfilWidget.routePath,
+          builder: (context, params) => PerfilWidget(),
+        ),
+        FFRoute(
+          name: VerEventouserWidget.routeName,
+          path: VerEventouserWidget.routePath,
+          asyncParams: {
+            'evento': getDoc(['eventos'], EventosRecord.fromSnapshot),
+          },
+          builder: (context, params) => VerEventouserWidget(
+            evento: params.getParam(
+              'evento',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PerfilOrganizadorWidget.routeName,
+          path: PerfilOrganizadorWidget.routePath,
+          builder: (context, params) => PerfilOrganizadorWidget(),
+        ),
+        FFRoute(
+          name: SolicitudesPendientesWidget.routeName,
+          path: SolicitudesPendientesWidget.routePath,
+          builder: (context, params) => SolicitudesPendientesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

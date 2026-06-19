@@ -1,3 +1,18 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "eventos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Estado",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Fecha",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

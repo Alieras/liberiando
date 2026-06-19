@@ -50,6 +50,16 @@ class UsersRecord extends FirestoreRecord {
   String get rol => _rol ?? '';
   bool hasRol() => _rol != null;
 
+  // "apellido" field.
+  String? _apellido;
+  String get apellido => _apellido ?? '';
+  bool hasApellido() => _apellido != null;
+
+  // "adminToken" field.
+  String? _adminToken;
+  String get adminToken => _adminToken ?? '';
+  bool hasAdminToken() => _adminToken != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -58,6 +68,8 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _rol = snapshotData['rol'] as String?;
+    _apellido = snapshotData['apellido'] as String?;
+    _adminToken = snapshotData['adminToken'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -101,6 +113,8 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   String? rol,
+  String? apellido,
+  String? adminToken,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +125,8 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'rol': rol,
+      'apellido': apellido,
+      'adminToken': adminToken,
     }.withoutNulls,
   );
 
@@ -128,7 +144,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.rol == e2?.rol;
+        e1?.rol == e2?.rol &&
+        e1?.apellido == e2?.apellido &&
+        e1?.adminToken == e2?.adminToken;
   }
 
   @override
@@ -139,7 +157,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.rol
+        e?.rol,
+        e?.apellido,
+        e?.adminToken
       ]);
 
   @override
