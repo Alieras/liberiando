@@ -1,18 +1,14 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'solicitud_widget.dart' show SolicitudWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
-  ///  State fields for stateful widgets in this page.
+class SolicitudModel extends FlutterFlowModel<SolicitudWidget> {
+  ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<EventosRecord> simpleSearchResults1 = [];
-  List<EventosRecord> simpleSearchResults2 = [];
 
   @override
   void initState(BuildContext context) {}

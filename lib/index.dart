@@ -11,3 +11,10 @@ export '/pages/admin/eventospendientes/eventospendientes_widget.dart'
 export '/pages/user/login/login_widget.dart' show LoginWidget;
 export '/pages/user/crear_cuenta/crear_cuenta_widget.dart'
     show CrearCuentaWidget;
+export '/pages/user/perfil/perfil_widget.dart' show PerfilWidget;
+export '/pages/user/ver_eventouser/ver_eventouser_widget.dart'
+    show VerEventouserWidget;
+export '/pages/organizador/perfil_organizador/perfil_organizador_widget.dart'
+    show PerfilOrganizadorWidget;
+export '/pages/admin/solicitudes_pendientes/solicitudes_pendientes_widget.dart'
+    show SolicitudesPendientesWidget;

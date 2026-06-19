@@ -486,8 +486,26 @@ class _LoginWidgetState extends State<LoginWidget>
                               return;
                             }
 
-                            context.goNamedAuth(
-                                AdminHomeWidget.routeName, context.mounted);
+                            if (valueOrDefault(currentUserDocument?.rol, '') ==
+                                'Administrador') {
+                              context.pushNamedAuth(
+                                  AdminHomeWidget.routeName, context.mounted);
+                            } else {
+                              if (valueOrDefault(
+                                      currentUserDocument?.rol, '') ==
+                                  'Usuario') {
+                                context.pushNamedAuth(
+                                    HomePageWidget.routeName, context.mounted);
+                              } else {
+                                if (valueOrDefault(
+                                        currentUserDocument?.rol, '') ==
+                                    'Organizador') {
+                                  context.pushNamedAuth(
+                                      HomePageWidget.routeName,
+                                      context.mounted);
+                                }
+                              }
+                            }
                           },
                           text: 'Ingresar',
                           options: FFButtonOptions(
@@ -650,7 +668,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          AdminHomeWidget.routeName,
+                                          HomePageWidget.routeName,
                                           context.mounted);
                                     },
                                     text: 'Continue with Google',

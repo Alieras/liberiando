@@ -27,6 +27,10 @@ class CrearCuentaModel extends FlutterFlowModel<CrearCuentaWidget> {
   FocusNode? telefonoFocusNode;
   TextEditingController? telefonoTextController;
   String? Function(BuildContext, String?)? telefonoTextControllerValidator;
+  // State field(s) for adminToken widget.
+  FocusNode? adminTokenFocusNode;
+  TextEditingController? adminTokenTextController;
+  String? Function(BuildContext, String?)? adminTokenTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
@@ -57,6 +61,9 @@ class CrearCuentaModel extends FlutterFlowModel<CrearCuentaWidget> {
 
     telefonoFocusNode?.dispose();
     telefonoTextController?.dispose();
+
+    adminTokenFocusNode?.dispose();
+    adminTokenTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

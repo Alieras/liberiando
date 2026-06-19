@@ -8,6 +8,8 @@ import 'schema/util/firestore_util.dart';
 import 'schema/users_record.dart';
 import 'schema/categoria_record.dart';
 import 'schema/eventos_record.dart';
+import 'schema/asistencias_record.dart';
+import 'schema/solicitud_organizador_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,6 +21,8 @@ export 'schema/util/schema_util.dart';
 export 'schema/users_record.dart';
 export 'schema/categoria_record.dart';
 export 'schema/eventos_record.dart';
+export 'schema/asistencias_record.dart';
+export 'schema/solicitud_organizador_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -126,6 +130,80 @@ Future<List<EventosRecord>> queryEventosRecordOnce({
     queryCollectionOnce(
       EventosRecord.collection,
       EventosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query AsistenciasRecords (as a Stream and as a Future).
+Future<int> queryAsistenciasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AsistenciasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AsistenciasRecord>> queryAsistenciasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AsistenciasRecord.collection,
+      AsistenciasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AsistenciasRecord>> queryAsistenciasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AsistenciasRecord.collection,
+      AsistenciasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query SolicitudOrganizadorRecords (as a Stream and as a Future).
+Future<int> querySolicitudOrganizadorRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SolicitudOrganizadorRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SolicitudOrganizadorRecord>> querySolicitudOrganizadorRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SolicitudOrganizadorRecord.collection,
+      SolicitudOrganizadorRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SolicitudOrganizadorRecord>> querySolicitudOrganizadorRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SolicitudOrganizadorRecord.collection,
+      SolicitudOrganizadorRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

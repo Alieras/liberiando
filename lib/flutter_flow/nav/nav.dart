@@ -77,13 +77,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? AdminHomeWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? AdminHomeWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -132,6 +132,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CrearCuentaWidget.routeName,
           path: CrearCuentaWidget.routePath,
           builder: (context, params) => CrearCuentaWidget(),
+        ),
+        FFRoute(
+          name: PerfilWidget.routeName,
+          path: PerfilWidget.routePath,
+          builder: (context, params) => PerfilWidget(),
+        ),
+        FFRoute(
+          name: VerEventouserWidget.routeName,
+          path: VerEventouserWidget.routePath,
+          asyncParams: {
+            'evento': getDoc(['eventos'], EventosRecord.fromSnapshot),
+          },
+          builder: (context, params) => VerEventouserWidget(
+            evento: params.getParam(
+              'evento',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PerfilOrganizadorWidget.routeName,
+          path: PerfilOrganizadorWidget.routePath,
+          builder: (context, params) => PerfilOrganizadorWidget(),
+        ),
+        FFRoute(
+          name: SolicitudesPendientesWidget.routeName,
+          path: SolicitudesPendientesWidget.routePath,
+          builder: (context, params) => SolicitudesPendientesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -65,6 +65,11 @@ class EventosRecord extends FirestoreRecord {
   String get estado => _estado ?? '';
   bool hasEstado() => _estado != null;
 
+  // "organizadorRef" field.
+  DocumentReference? _organizadorRef;
+  DocumentReference? get organizadorRef => _organizadorRef;
+  bool hasOrganizadorRef() => _organizadorRef != null;
+
   void _initializeFields() {
     _nombre = snapshotData['Nombre'] as String?;
     _descripcion = snapshotData['Descripcion'] as String?;
@@ -76,6 +81,7 @@ class EventosRecord extends FirestoreRecord {
     _imagen = snapshotData['Imagen'] as String?;
     _precio = snapshotData['Precio'] as String?;
     _estado = snapshotData['Estado'] as String?;
+    _organizadorRef = snapshotData['organizadorRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +129,7 @@ Map<String, dynamic> createEventosRecordData({
   String? imagen,
   String? precio,
   String? estado,
+  DocumentReference? organizadorRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +143,7 @@ Map<String, dynamic> createEventosRecordData({
       'Imagen': imagen,
       'Precio': precio,
       'Estado': estado,
+      'organizadorRef': organizadorRef,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class EventosRecordDocumentEquality implements Equality<EventosRecord> {
         e1?.organizador == e2?.organizador &&
         e1?.imagen == e2?.imagen &&
         e1?.precio == e2?.precio &&
-        e1?.estado == e2?.estado;
+        e1?.estado == e2?.estado &&
+        e1?.organizadorRef == e2?.organizadorRef;
   }
 
   @override
@@ -170,7 +179,8 @@ class EventosRecordDocumentEquality implements Equality<EventosRecord> {
         e?.organizador,
         e?.imagen,
         e?.precio,
-        e?.estado
+        e?.estado,
+        e?.organizadorRef
       ]);
 
   @override
